@@ -1,15 +1,39 @@
-const heroBtn = document.querySelector(".main-button");
-const modalWindow = document.querySelector(".backdrop");
+// modal hero button
 
-heroBtn.addEventListener("click", toggleModal);
+const button = document.querySelector(".btn-modal");
+const backdrop = document.querySelector(".modal-backdrop");
 
-modalWindow.addEventListener("click", (e) => {
-  const target = e.target.closest(".exit-button");
-  if (!target) return;
+button.addEventListener("click", toggleModal);
 
+backdrop.addEventListener("click", (e) => {
+  const target = e.target.closest(".btn-close-modal");
+
+  if (!target) {
+    return;
+  }
   toggleModal();
 });
 
 function toggleModal() {
-  modalWindow.classList.toggle("is-open");
+  backdrop.classList.toggle("is-open");
+}
+
+// burger menu mobile
+
+const burgerButton = document.querySelector(".btn-burger-modal");
+const burgerBackdrop = document.querySelector(".burger_menu");
+
+burgerButton.addEventListener("click", toggleBurgerModal);
+
+burgerBackdrop.addEventListener("click", (e) => {
+  const target = e.target.closest(".burger_menu_btn-close-modal");
+
+  if (!target) {
+    return;
+  }
+  toggleBurgerModal();
+});
+
+function toggleBurgerModal() {
+  burgerBackdrop.classList.toggle("is-burger-open");
 }
